@@ -147,11 +147,18 @@ python infer.py \
 ```
 
 ### Arguments
-Argument	Description<br><br>
---input_file	CSV/XLSX with rooftop coordinates<br>
---output_dir	Directory to store outputs<br>
---model_path	Path to YOLO .pt segmentation model<br>
---api_key	Google Static Maps API key (optional)<br>
+### Command-Line Arguments
+
+| Argument | Description |
+|--------|------------|
+| `--input_file` | Path to the input XLSX/CSV file containing `sample_id`, `latitude`, and `longitude` |
+| `--output_dir` | Directory where prediction JSON and audit artifacts will be saved |
+| `--model_path` | Path to the provided YOLO segmentation model (`.pt`) included in this repository |
+| `--api_key` | Google Static Maps API key (optional; can also be provided via environment variable) |
+
+**Note:**  
+A trained YOLO segmentation model (`.pt`) is included as part of the submission.  
+No model training is required to run inference.
 
 ## Failure Handling
 
