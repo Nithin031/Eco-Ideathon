@@ -14,7 +14,6 @@ The system is designed to be deterministic, explainable, and suitable for large-
 - Reads rooftop coordinates from CSV or XLSX files
 - Fetches satellite imagery using:
   - Google Static Maps (preferred)
-  - ESRI World Imagery (fallback)
 - Applies spatial jittering to handle coordinate noise
 - Performs image quality checks (clouds, shadows, resolution)
 - Runs YOLO segmentation inference
@@ -31,7 +30,6 @@ The system is designed to be deterministic, explainable, and suitable for large-
 ## Input Data Format
 
 ### Supported Formats
-- `.csv`
 - `.xlsx`
 
 ### Required Columns
