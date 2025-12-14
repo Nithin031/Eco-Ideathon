@@ -1,10 +1,11 @@
-ultralytics>=8.0.0<br>
-torch>=2.0.0<br>
-torchvision>=0.15.0<br>
-numpy>=1.23.0<br>
-pandas>=1.5.0<br>
-opencv-python>=4.7.0<br>
-Pillow>=9.4.0<br>
-requests>=2.28.0<br>
-shapely>=2.0.0<br>
+ultralytics>=8.0.0
+torch>=2.0.0
+torchvision>=0.15.0
+numpy>=1.23.0
+pandas>=1.5.0
+opencv-python>=4.7.0
+Pillow>=9.4.0
+requests>=2.28.0
+shapely>=2.0.0
+
 
