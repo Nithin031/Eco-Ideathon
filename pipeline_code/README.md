@@ -42,12 +42,8 @@ The system is designed to be deterministic, explainable, and suitable for large-
 | `latitude` | Latitude (WGS84) |
 | `longitude` | Longitude (WGS84) |
 
-### Example
 
-```csv
-sample_id,latitude,longitude
-ID_001,12.9716,77.5946
-ID_002,19.0760,72.8777
+
 
 ## Pipeline Workflow
 
@@ -100,10 +96,73 @@ For valid detections, the pipeline computes:
 
 ---
 
+## Running the Pipeline
+### Command-Line Usage
+python solar_verifier.py \
+  --input_file data/input.csv \
+  --output_dir outputs/run_01 \
+  --model_path models/yolo_seg.pt \
+  --api_key YOUR_GOOGLE_MAPS_API_KEY
+### Arguments
+Argument	Description<br><br>
+--input_file	CSV/XLSX with rooftop coordinates<br>
+--output_dir	Directory to store outputs<br>
+--model_path	Path to YOLO .pt segmentation model<br>
+--api_key	Google Static Maps API key (optional)<br>
+
+## Failure Handling
+
+The pipeline robustly handles:<br>
+
+-Image acquisition failures<br>
+
+-Poor image quality<br>
+
+-Inference errors<br>
+
+Such cases are explicitly marked as NOT_VERIFIABLE with reason codes.<br>
+
+### Design Principles
+
+-Conservative decision-making under uncertainty<br>
+
+-Deterministic and reproducible inference<br>
+
+-Explicit confidence calibration<br>
+
+-Geometry-aware validation<br>
+
+-Audit-friendly outputs<br>
 ## Outputs
 
 ### 1. Prediction File
 
 The pipeline generates a consolidated prediction file:
+
+Each record includes:
+
+```json
+{
+  "sample_id": "ID_001",
+  "lat": 12.9716,
+  "lon": 77.5946,
+  "has_solar": true,
+  "confidence": 0.82,
+  "pv_area_sqm_est": 18.4,
+  "panel_count_est": 10,
+  "capacity_kw_est": 3.5,
+  "buffer_radius_sqft": 1200,
+  "qc_status": "VERIFIABLE",
+  "bbox_or_mask": {
+    "type": "Polygon",
+    "coordinates": [...]
+  },
+  "image_metadata": {
+    "source": "Google Static Maps",
+    "retrieved_at": "2025-01-01T12:00:00Z"
+  }
+}
+
+
 
 
