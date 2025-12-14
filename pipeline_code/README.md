@@ -98,7 +98,7 @@ For valid detections, the pipeline computes:
 
 ## Running the Pipeline
 ### Command-Line Usage
-python solar_verifier.py \
+python infer.py \
   --input_file data/input.csv \
   --output_dir outputs/run_01 \
   --model_path models/yolo_seg.pt \
@@ -122,7 +122,7 @@ The pipeline robustly handles:<br>
 
 Such cases are explicitly marked as NOT_VERIFIABLE with reason codes.<br>
 
-### Design Principles
+## Design Principles
 
 -Conservative decision-making under uncertainty<br>
 
@@ -135,7 +135,7 @@ Such cases are explicitly marked as NOT_VERIFIABLE with reason codes.<br>
 -Audit-friendly outputs<br>
 ## Outputs
 
-### 1. Prediction File
+###  Prediction File
 
 The pipeline generates a consolidated prediction file:
 
@@ -162,6 +162,10 @@ Each record includes:
     "retrieved_at": "2025-01-01T12:00:00Z"
   }
 }
+
+```
+## License
+This project is intended for academic, research, and evaluation use.
 
 
 
