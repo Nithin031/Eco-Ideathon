@@ -162,4 +162,4 @@ All datasets and tools are cited in the model card.
 ## Authors
 
 - **Nithin**
-- **Sam**
+- **Samruddhi Deshpande**
